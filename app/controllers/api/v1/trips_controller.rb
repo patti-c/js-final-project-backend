@@ -2,7 +2,7 @@ class Api::V1::TripsController < ApplicationController
 
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
 
-  def trips
+  def index
     @trips = Trip.all
     render json: @trips, status: 200
   end
@@ -31,7 +31,13 @@ class Api::V1::TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :origin, :name, :user_id)
+    params.require(:trip).permit(
+      :destination,
+      :destination_code,
+      :origin_code,
+      :origin,
+      :name,
+      :user_id)
   end
 
   def find_trip
