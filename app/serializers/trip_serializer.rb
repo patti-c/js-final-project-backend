@@ -1,4 +1,4 @@
 class TripSerializer < ActiveModel::Serializer
   belongs_to :user
-  attributes :id, :origin, :destination
+  attributes :id, :origin, :destination, :name
 end
